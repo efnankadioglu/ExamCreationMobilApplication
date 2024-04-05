@@ -1,19 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textQuestionNumber"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Q : 1 / 5"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textRightAnswered"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="RA : 1 / 5"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+
+
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/textQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="What is a correct syntax to output 'Hello World' in Java?"
+        android:textSize="28sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonOptional1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="System.out.println(''Hello World'');  "
+        android:background="@drawable/buttons_option_bg"
+        android:textColor="@android:color/black"
+        android:layout_margin="5dp"
+        android:textSize="17sp"
+        />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonOptional2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text=" print (''Hello World''); "
+        android:background="@drawable/buttons_option_bg"
+        android:textColor="@android:color/black"
+        android:layout_margin="5dp"
+        android:textSize="17sp"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonOptional3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Console.WriteLine''Hello Worl''); "
+        android:background="@drawable/buttons_option_bg"
+        android:textColor="@android:color/black"
+        android:layout_margin="5dp"
+        android:textSize="17sp"
+        />
+
+
+
+
+</LinearLayout>
