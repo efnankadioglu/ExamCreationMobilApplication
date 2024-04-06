@@ -80,12 +80,76 @@ public class MainActivity extends AppCompatActivity {
         int operationA = new Random().nextInt(100);
         int operationB = new Random().nextInt(100);
 
+        if (operation == 1){
+            realOperation = "+";
+            rightAnswer = firstNumber + secondNumber;
+            textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = ?");
+        }else {
+            if (operation == 2){
+                realOperation = "*";
+                rightAnswer = firstNumber * secondNumber;
+                textQuestion.setText(firstNumber + " " + realOperation + " " + secondNumber + " = ?");
+            }else{
+                if (operation == 3){
+                    realOperation = "-";
+                    if (firstNumber < secondNumber){
+                        rightAnswer = secondNumber - firstNumber;
+                        textQuestion.setText(secondNumber+ " "+ realOperation + " " + firstNumber+ " = ?");
+                    }else {
+                        rightAnswer = firstNumber - secondNumber;
+                        textQuestion.setText(firstNumber+ " "+ realOperation + " " + secondNumber+ " = ?");
+                    }
+                }
+            }
+        }
 
+        int position = new Random().nextInt(3)+1;
 
+        if(position == 1){
+            buttonOp1.setText(""+rightAnswer);
+            buttonOp2.setText(""+optionA);
+            buttonOp3.setText(""+optionB);
+        }else{
+            buttonOp1.setText(""+optionA);
+            if (position == 2){
+                buttonOp2.setText(""+rightAnswer);
+                buttonOp3.setText(""+optionB);
+            }else{
+                buttonOp2.setText(""+optionB);
+                buttonOp3.setText(""+rightAnswer);
+            }
+        }
 
-        // if kısmında kaldım
+        buttonOp1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (buttonOp1.getText().equals(""+rightAnswer)){
+                    buttonOp1.setBackgroundResource(R.drawable.right_answer_bg);
+                    great = great + 1;
+                    level = level + 1;
+                    textLevel.setText("Q : "+ level + " / 10");
+                    textRightAnswered.setText("RA : "+ great +" / 10");
+                }else {
+                    level = level + 1;
+                    textLevel.setText("Q : "+ level + " / 10");
+                    buttonOp1.setBackgroundResource(R.drawable.wrong_answer_bg);
+                }
 
-
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (level < 10){
+                            getARandomQuestion();
+                        }else {
+                            Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+                            intent.putExtra( "RA", great);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
+                }, 1000);
+            }
+        });
 
 
 
